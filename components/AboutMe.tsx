@@ -1,47 +1,82 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 function AboutMe() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: "-250px 0px",
+    threshold: 0.5,
+  });
   return (
     <>
-      <section>
-        {/* <div className=" p-4 max-w-5xl mx-auto text-center space-y-4">
-          <h5 className="text-lg font-medium text-yellow-500">
-            My Qualification
-          </h5>
-          <h2 className="text-2xl md:text-4xl font-bold text-blue-900">
-            Awesome Journey
-          </h2>
-        </div> */}
-        <div className="lg:flex justify-around inline-block  p-5 w-full bg-neutral-100">
-          <div className="relative mx-2 my-8">
-            <div className="absolute bg-zinc-400 transform -rotate-6 shadow-2xl rounded-3xl inset-0 h-64 sm:h-80 md:h-72 lg:h-96 border-2 lg:w-full lg:mx-0"></div>
-            <Image
-              src="/another.png"
-              width={400}
-              height={300}
-              className="relative h-64 sm:h-80 md:h-72 lg:h-96 lg:w-full w-full rounded-3xl "
-              alt="Intro"
-            />
+      <section id="about">
+        <div className="lg:flex justify-around inline-block  p-5 w-full bg-neutral-100 lg:py-20 py-8" ref={ref}>
+          {inView && <>
+            <div className="relative mx-2 my-8">
+            <motion.div
+              initial={{ opacity: 0, x: 50, rotate: 10 }}
+              whileInView={{ opacity: 1 }}
+              animate={{ x: 1, rotate: 6 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="absolute bg-zinc-400 transform -rotate-6 shadow-2xl rounded-3xl inset-0 h-64 sm:h-80 md:h-72 lg:h-96 border-2 lg:w-full lg:mx-0"></motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50, rotate: -5 }}
+              whileInView={{ opacity: 1 }}
+              animate={{ y: 1, rotate: 0 } }
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <Image
+                src="/another.png"
+                width={400}
+                height={300}
+                className="relative h-64 sm:h-80 md:h-72 lg:h-96 lg:w-full w-full rounded-3xl "
+                alt="Intro"
+              />
+            </motion.div>
           </div>
-          <div className="w-full lg:w-1/2 px-5">
+          <div
+            className="w-full lg:w-1/2 px-5">
             <div className="space-y-4 lg:my-5 my-12">
-              <h5 className="text-lg font-medium text-indigo-600">My Intro</h5>
-              <h2 className="text-2xl md:text-2xl font-bold text-blue-900">
+              <motion.h5
+                initial={{ opacity: 0, x: 150 }}
+                whileInView={{ opacity: 1 }}
+                animate={{ x: 1 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="text-lg font-medium text-purple-700">My Intro</motion.h5>
+              <motion.h2
+                initial={{ opacity: 0, x: 150 }}
+                whileInView={{ opacity: 1 }}
+                animate={{ x: 1 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+                className="text-2xl md:text-2xl font-bold text-blue-900">
                 About Me
-              </h2>
-              <p className="lg:text-md font-medium text-gray-500 max-w-xl">
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, x: 150 }}
+                whileInView={{ opacity: 1 }}
+                animate={{ x: 1 }}
+                transition={{ delay: 0.9, duration: 0.5 }}
+                className="lg:text-md font-medium text-gray-500 max-w-xl">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
                 inventore debitis. Nostrum mollitia culpa impedit officiis. Rem
                 deleniti autem, debitis commodi quos tempore ab esse, earum ea,
                 iste praesentium eius? Illum, cum.
-              </p>
+              </motion.p>
             </div>
             <div className="mt-8 space-y-2">
-              <div className="flex flex-wrap">
+              <motion.div
+                initial={{ opacity: 0, x: 150 }}
+                whileInView={{ opacity: 1 }}
+                animate={{ x: 1 }}
+                transition={{ delay: 1.1, duration: 0.5 }}
+                className="flex flex-wrap">
                 <div className="flex space-x-2 items-center mr-4">
                   <div>
                     <svg
-                      className="devfont devfont-user h-5 w-5 text-indigo-600"
+                      className="devfont devfont-user h-5 w-5 text-purple-700"
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
@@ -59,12 +94,17 @@ function AboutMe() {
                   <div className="font-bold text-gray-600">Name :</div>
                 </div>
                 <div className="font-medium text-gray-500">Mary Hardy</div>
-              </div>
-              <div className="flex flex-wrap">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 150 }}
+                whileInView={{ opacity: 1 }}
+                animate={{ x: 1 }}
+                transition={{ delay: 1.3, duration: 0.5 }}
+                className="flex flex-wrap">
                 <div className="flex space-x-2 items-center mr-4">
                   <div>
                     <svg
-                      className="h-5 w-5 text-indigo-600"
+                      className="h-5 w-5 text-purple-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -81,12 +121,17 @@ function AboutMe() {
                   <div className="font-bold text-gray-600">Phone :</div>
                 </div>
                 <div className="font-medium text-gray-500">+92 3234080400</div>
-              </div>
-              <div className="flex flex-wrap">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 150 }}
+                whileInView={{ opacity: 1 }}
+                animate={{ x: 1 }}
+                transition={{ delay: 1.5, duration: 0.5 }}
+                className="flex flex-wrap">
                 <div className="flex space-x-2 items-center mr-4">
                   <div>
                     <svg
-                      className="h-5 w-5 text-indigo-600"
+                      className="h-5 w-5 text-purple-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -105,17 +150,27 @@ function AboutMe() {
                 <div className="font-medium text-gray-500">
                   maryhardy@hotmail.com
                 </div>
-              </div>
+              </motion.div>
             </div>
             <div className="mt-8 space-y-4">
-              <h3 className="text-xl lg:text-1xl text-gray-600 font-bold">
+              <motion.h3
+                initial={{ opacity: 0, x: 150 }}
+                whileInView={{ opacity: 1 }}
+                animate={{ x: 1 }}
+                transition={{ delay: 1.7, duration: 0.5 }}
+                className="text-xl lg:text-1xl text-gray-600 font-bold">
                 My interests
-              </h3>
+              </motion.h3>
               <div className="flex flex-wrap">
-                <div className="flex space-x-2 items-center mr-4 mb-4">
+                <motion.div
+                  initial={{ opacity: 0, x: 150 }}
+                  whileInView={{ opacity: 1 }}
+                  animate={{ x: 1 }}
+                  transition={{ delay: 1.9, duration: 0.5 }}
+                  className="flex space-x-2 items-center mr-4 mb-4">
                   <div>
                     <svg
-                      className="h-7 w-7 text-indigo-600"
+                      className="h-7 w-7 text-purple-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -130,11 +185,16 @@ function AboutMe() {
                     </svg>
                   </div>
                   <div className="font-bold text-gray-600">Music</div>
-                </div>
-                <div className="flex space-x-2 items-center mr-4 mb-4">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 150 }}
+                  whileInView={{ opacity: 1 }}
+                  animate={{ x: 1 }}
+                  transition={{ delay: 2.1, duration: 0.5 }}
+                  className="flex space-x-2 items-center mr-4 mb-4">
                   <div>
                     <svg
-                      className="h-7 w-7 text-indigo-600"
+                      className="h-7 w-7 text-purple-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -149,11 +209,16 @@ function AboutMe() {
                     </svg>
                   </div>
                   <div className="font-bold text-gray-600">Travel</div>
-                </div>
-                <div className="flex space-x-2 items-center mr-4 mb-4">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 150 }}
+                  whileInView={{ opacity: 1 }}
+                  animate={{ x: 1 }}
+                  transition={{ delay: 2.3, duration: 0.5 }}
+                  className="flex space-x-2 items-center mr-4 mb-4">
                   <div>
                     <svg
-                      className="h-7 w-7 text-indigo-600"
+                      className="h-7 w-7 text-purple-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -168,11 +233,16 @@ function AboutMe() {
                     </svg>
                   </div>
                   <div className="font-bold text-gray-600">Video</div>
-                </div>
-                <div className="flex space-x-2 items-center mr-4 mb-4">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 150 }}
+                  whileInView={{ opacity: 1 }}
+                  animate={{ x: 1 }}
+                  transition={{ delay: 2.5, duration: 0.5 }}
+                  className="flex space-x-2 items-center mr-4 mb-4">
                   <div>
                     <svg
-                      className="h-7 w-7 text-indigo-600"
+                      className="h-7 w-7 text-purple-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -193,10 +263,11 @@ function AboutMe() {
                     </svg>
                   </div>
                   <div className="font-bold text-gray-600">Photo</div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
+          </>}
         </div>
       </section>
     </>

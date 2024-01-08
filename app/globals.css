@@ -3,5 +3,6 @@
 @import 'tailwindcss/utilities';
 
 body{
-    max-width: 1680px !important;
+    max-width: auto !important;
+    scroll-behavior: smooth;
 }

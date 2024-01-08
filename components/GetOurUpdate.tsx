@@ -8,7 +8,7 @@ function GetOurUpdate() {
 		<p className="pt-2 pb-8 text-xl antialiased text-center dark:text-gray-100">Find out about events and other news</p>
 		<div className="flex flex-row">
 			<input type="text" placeholder="xyz@gmail.com" className="w-3/5 p-3 rounded-l-lg sm:w-2/3" />
-			<button type="button" className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3 bg-indigo-600 text-white">Subscribe</button>
+			<button type="button" className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3 bg-purple-700 text-white">Subscribe</button>
 		</div>
 	</div>
 </div>
