@@ -42,10 +42,13 @@ function Hero() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="lg:w-1/2 w-full lg:p-20 p-5">
           <div className="my-8">
-            <h1 className="font-bold text-5xl">Hey ! I'm</h1>
+            <h1 className="font-bold text-4xl">Hey !</h1>
+          </div>
+          <div className="my-8">
+            <h1 className="text-5xl">I'm <span className="font-semibold" style={{ fontFamily: "" }}>Vijay</span></h1>
           </div>
           <div>
-            <h1 className="animate-bounce font-bold text-4xl text-purple-700">
+            <h1 className="animate-bounce font-bold text-4xl text-purple-700" style={{ fontFamily: "cursive" }}>
               <label className="text-5xl">{actualData}</label>
             </h1>
           </div>
